@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Quiz | WaveLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--primary-cyan);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        #progressFill {
+            height: 100%;
+            background: var(--primary-cyan);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--primary-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 auto 2rem;
+            color: var(--primary-cyan);
+            text-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Engineering Assessment</h1>
+        <p>Test your knowledge on Microwave & Infrared Systems</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="theory.html">Theory</a>
+        <a href="experiments.html">Engineering Lab</a>
+        <a href="applications.html">Applications</a>
+        <a href="quiz.html" class="active">Quiz</a>
+    </nav>
+
+    <section class="content quiz-container">
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <div id="quizContent">
+            <!-- Questions will be injected here -->
+        </div>
+
+        <div id="resultArea" class="card workbench-card" style="display: none; margin-top: 2rem;">
+            <div id="feedbackTitle" class="crt-readout" style="border: none; font-size: 1.5rem;">Assessment Complete
+            </div>
+            <div id="feedbackText" class="scen-text" style="margin-top: 1rem;">Analyzing your performance...</div>
+            <button class="glow-btn" style="margin-top: 1.5rem;" onclick="location.reload()">Reset Quiz</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Academic Excellence | © 2026 WaveLab</p>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+
+</body>
+
+</html>
